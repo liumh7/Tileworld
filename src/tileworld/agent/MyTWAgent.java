@@ -3,17 +3,16 @@ package tileworld.agent;
 import tileworld.Parameters;
 import tileworld.environment.*;
 import tileworld.exceptions.CellBlockedException;
-import tileworld.planners.DefaultTWPlanner;
 
 public class MyTWAgent extends TWAgent {
     private static final int MAX_TILES = 3;
     private static final int FUEL_TOLERANCE = Parameters.defaultFuelLevel - 10;
     private final String name;
-    private DefaultTWPlanner planner;
+    //private DefaultTWPlanner planner;
     public MyTWAgent(String name, int xpos, int ypos, TWEnvironment env, double fuelLevel) {
         super(xpos, ypos, env, fuelLevel);
         this.name = name;
-        this.planner = new DefaultTWPlanner(this);
+        //this.planner = new DefaultTWPlanner(this);
     }
 
     @Override
@@ -36,18 +35,18 @@ public class MyTWAgent extends TWAgent {
             }
         }
         // Choose the closest object as target
-        TWHole closestHole = (TWHole) memory.getClosestObjectInSensorRange(TWHole.class);
-        TWTile closestTile = (TWTile) memory.getClosestObjectInSensorRange(TWTile.class);
-        if (hasTile() && closestHole != null) {
-            planner.addGoal(closestHole);
-        } else if (closestTile != null) {
-            planner.addGoal(closestTile);
-        }
-
-        if (planner.hasGoal()) {
-            planner.generatePlan();
-            return new TWThought(TWAction.MOVE, planner.execute());
-        }
+        //TWHole closestHole = (TWHole) memory.getClosestObjectInSensorRange(TWHole.class);
+        //TWTile closestTile = (TWTile) memory.getClosestObjectInSensorRange(TWTile.class);
+        //if (hasTile() && closestHole != null) {
+        //    planner.addGoal(closestHole);
+        //} else if (closestTile != null) {
+        //    planner.addGoal(closestTile);
+        //}
+        //
+        //if (planner.hasGoal()) {
+        //    planner.generatePlan();
+        //    return new TWThought(TWAction.MOVE, planner.execute());
+        //}
         //System.out.println("Simple Score: " + this.score);
         return new TWThought(TWAction.MOVE, getRandomDirection());
     }
@@ -57,8 +56,8 @@ public class MyTWAgent extends TWAgent {
      */
     private void init() {
         sense();
-        planner.clearGoals();
-        planner.voidPlan();
+        //planner.clearGoals();
+        //planner.voidPlan();
     }
 
     @Override

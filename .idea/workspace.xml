@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fe3d3c4-c70c-4304-97ee-2fc7f39141f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tileworld.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tileworld.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/TWAgentWorkingMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/TWAgentWorkingMemory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/agent/TWAgentWorkingMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/TWAgentWorkingMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +123,7 @@
       <workItem from="1676544893552" duration="4086000" />
       <workItem from="1679540286008" duration="24827000" />
       <workItem from="1679575410005" duration="597000" />
-      <workItem from="1679625258231" duration="11023000" />
+      <workItem from="1679625258231" duration="11294000" />
     </task>
     <servers />
   </component>
