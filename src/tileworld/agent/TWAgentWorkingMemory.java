@@ -1,23 +1,15 @@
 package tileworld.agent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import javax.swing.text.html.HTMLDocument;
 import sim.engine.Schedule;
 import sim.field.grid.ObjectGrid2D;
 import sim.util.Bag;
 import sim.util.Int2D;
 import sim.util.IntBag;
-import tileworld.environment.NeighbourSpiral;
 import tileworld.Parameters;
-import tileworld.environment.TWEntity;
+import tileworld.environment.*;
 
-
-import tileworld.environment.TWHole;
-import tileworld.environment.TWObject;
-import tileworld.environment.TWObstacle;
-import tileworld.environment.TWTile;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * TWAgentMemory
@@ -158,7 +150,7 @@ public class TWAgentWorkingMemory {
 
 	/**
 	 * updates memory using 2d array of sensor range - currently not used
-	 * @see TWAgentWorkingMemory#updateMemory(sim.util.Bag, sim.util.IntBag, sim.util.IntBag)
+	 * @see TWAgentWorkingMemory updateMemory(sim.util.Bag, sim.util.IntBag, sim.util.IntBag)
 	 */
 	public void updateMemory(TWEntity[][] sensed, int xOffset, int yOffset) {
 		for (int x = 0; x < sensed.length; x++) {
@@ -247,8 +239,8 @@ public class TWAgentWorkingMemory {
 	 * Also note that it is likely that nearby objects are also the most recently observed
 	 *
 	 *
-	 * @param x coordinate from which to check for objects
-	 * @param y coordinate from which to check for objects
+	 * @param sx coordinate from which to check for objects
+	 * @param sy coordinate from which to check for objects
 	 * @param threshold how recently we want to have seen the object
 	 * @param type the class of object we're looking for (Must inherit from TWObject, specifically tile or hole)
 	 * @return

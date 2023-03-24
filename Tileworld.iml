@@ -14,15 +14,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library">
-      <library name="MASON_14.jar">
-        <CLASSES>
-          <root url="file://C:/Users/schen/Desktop/Tileworld1/MASON_14.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="MASON_14" level="project" />
+    <orderEntry type="library" exported="" name="MASON_14" level="project" />
+    <orderEntry type="library" exported="" name="j3dcore" level="project" />
   </component>
 </module>

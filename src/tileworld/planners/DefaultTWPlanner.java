@@ -5,7 +5,12 @@
 package tileworld.planners;
 
 import sim.util.Int2D;
+import tileworld.Parameters;
+import tileworld.agent.TWAgent;
 import tileworld.environment.TWDirection;
+import tileworld.environment.TWEntity;
+
+import java.util.ArrayList;
 
 /**
  * DefaultTWPlanner
@@ -40,25 +45,49 @@ import tileworld.environment.TWDirection;
  *
  */
 public class DefaultTWPlanner implements TWPlanner {
-
+    private ArrayList<Int2D> goals;
+    private TWPath plan;
+    private TWAgent agent;
+    private AstarPathGenerator pathGenerator;
+    public DefaultTWPlanner(TWAgent agent) {
+        this.agent = agent;
+        this.plan = null;
+        this.goals = new ArrayList<Int2D>(4);
+        int maxSearchDepth = (Parameters.xDimension + Parameters.yDimension) / 4;
+        this.pathGenerator = new AstarPathGenerator(agent.getEnvironment(), agent, maxSearchDepth);
+    }
+    public void addGoal(TWEntity object) {
+        addGoal(object.getX(), object.getY());
+    }
+    public void addGoal(int x, int y) {
+        goals.add(new Int2D(x, y));
+    }
+    public void clearGoals() {
+        goals = new ArrayList<Int2D>(4);
+    }
+    public boolean hasGoal() {
+        return !goals.isEmpty();
+    }
+    @Override
     public TWPath generatePlan() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        plan = pathGenerator.findPath(agent.getX(), agent.getY(), goals.get(0).x, goals.get(0).y);
+        return plan;
     }
-
+    @Override
     public boolean hasPlan() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return plan != null && plan.hasNext();
     }
-
+    @Override
     public void voidPlan() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        plan = null;
     }
-
+    @Override
     public Int2D getCurrentGoal() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return goals.isEmpty() ? null : goals.get(0);
     }
-
+    @Override
     public TWDirection execute() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return plan.popNext().getDirection();
     }
 
 }
