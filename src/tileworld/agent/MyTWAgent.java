@@ -3,16 +3,19 @@ package tileworld.agent;
 import tileworld.Parameters;
 import tileworld.environment.*;
 import tileworld.exceptions.CellBlockedException;
+import tileworld.planners.DefaultTWPlanner;
 
 public class MyTWAgent extends TWAgent {
     private static final int MAX_TILES = 3;
     private static final int FUEL_TOLERANCE = Parameters.defaultFuelLevel - 10;
+    private static final int FUEL_THRESHOLD = Parameters.defaultFuelLevel / 10;
+    private static final int FUEL_DISTANCE_BOUND = 10;
     private final String name;
-    //private DefaultTWPlanner planner;
+    private DefaultTWPlanner planner;
     public MyTWAgent(String name, int xpos, int ypos, TWEnvironment env, double fuelLevel) {
         super(xpos, ypos, env, fuelLevel);
         this.name = name;
-        //this.planner = new DefaultTWPlanner(this);
+        this.planner = new DefaultTWPlanner(this);
     }
 
     @Override
@@ -34,19 +37,26 @@ public class MyTWAgent extends TWAgent {
                 return new TWThought(TWAction.PICKUP, TWDirection.Z);
             }
         }
+        // If agent runs out fuel, go to fuel station.
+        TWFuelStation fuelStation = TWAgentWorkingMemory.getFuelStation();
+        if (fuelStation != null && (fuelLevel < FUEL_THRESHOLD || fuelLevel - getDistanceTo(fuelStation) < FUEL_DISTANCE_BOUND)) {
+            planner.addGoal(fuelStation);
+            planner.generatePlan();
+            return new TWThought(TWAction.MOVE, planner.execute());
+        }
         // Choose the closest object as target
-        //TWHole closestHole = (TWHole) memory.getClosestObjectInSensorRange(TWHole.class);
-        //TWTile closestTile = (TWTile) memory.getClosestObjectInSensorRange(TWTile.class);
-        //if (hasTile() && closestHole != null) {
-        //    planner.addGoal(closestHole);
-        //} else if (closestTile != null) {
-        //    planner.addGoal(closestTile);
-        //}
-        //
-        //if (planner.hasGoal()) {
-        //    planner.generatePlan();
-        //    return new TWThought(TWAction.MOVE, planner.execute());
-        //}
+        TWHole closestHole = (TWHole) memory.getClosestObjectInSensorRange(TWHole.class);
+        TWTile closestTile = (TWTile) memory.getClosestObjectInSensorRange(TWTile.class);
+        if (hasTile() && closestHole != null) {
+            planner.addGoal(closestHole);
+        } else if (closestTile != null && carriedTiles.size() < MAX_TILES) {
+            planner.addGoal(closestTile);
+        }
+
+        if (planner.hasGoal()) {
+            planner.generatePlan();
+            return new TWThought(TWAction.MOVE, planner.execute());
+        }
         //System.out.println("Simple Score: " + this.score);
         return new TWThought(TWAction.MOVE, getRandomDirection());
     }
@@ -56,8 +66,8 @@ public class MyTWAgent extends TWAgent {
      */
     private void init() {
         sense();
-        //planner.clearGoals();
-        //planner.voidPlan();
+        planner.clearGoals();
+        planner.voidPlan();
     }
 
     @Override
@@ -74,10 +84,12 @@ public class MyTWAgent extends TWAgent {
                     this.move(thought.getDirection());
                     break;
                 case PICKUP:
-                    this.pickUpTile((TWTile) getLocal());
+                    TWTile localTile = (TWTile) getLocal();
+                    this.pickUpTile(localTile);
                     break;
                 case PUTDOWN:
-                    this.putTileInHole((TWHole) getLocal());
+                    TWHole localHole = (TWHole) getLocal();
+                    this.putTileInHole(localHole);
                     break;
                 case REFUEL:
                     this.refuel();

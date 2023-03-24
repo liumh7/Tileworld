@@ -1,7 +1,5 @@
 package tileworld.agent;
 
-import java.awt.Color;
-import java.util.ArrayList;
 import sim.display.GUIState;
 import sim.engine.SimState;
 import sim.engine.Steppable;
@@ -9,12 +7,11 @@ import sim.portrayal.Inspector;
 import sim.portrayal.LocationWrapper;
 import sim.portrayal.Portrayal;
 import tileworld.Parameters;
-import tileworld.environment.TWDirection;
-import tileworld.environment.TWEntity;
-import tileworld.environment.TWEnvironment;
-import tileworld.environment.TWHole;
-import tileworld.environment.TWTile;
+import tileworld.environment.*;
 import tileworld.exceptions.CellBlockedException;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * TWAgent

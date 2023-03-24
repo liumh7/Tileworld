@@ -62,6 +62,7 @@ public class TWAgentWorkingMemory {
 	private HashMap<Class<?>, TWEntity> closestInSensorRange;
 	static private List<Int2D> spiral = new NeighbourSpiral(Parameters.defaultSensorRange * 4).spiral();
 	//    private List<TWAgent> neighbouringAgents = new ArrayList<TWAgent>();
+	private static TWFuelStation fuelStation = null;
 
 	// x, y: the dimension of the grid
 	public TWAgentWorkingMemory(TWAgent moi, Schedule schedule, int x, int y) {
@@ -102,14 +103,32 @@ public class TWAgentWorkingMemory {
 		//must all be same size.
 		assert (sensedObjects.size() == objectXCoords.size() && sensedObjects.size() == objectYCoords.size());
 
-		//        me.getEnvironment().getMemoryGrid().clear();  // THis is equivalent to only having sensed area in memory
-		//       this.decayMemory();       // You might want to think about when to call the decay function as well.
-		for (int i = 0; i < sensedObjects.size(); i++) {
+		//memoryGrid.clear();  // THis is equivalent to only having sensed area in memory
+		this.decayMemory();       // You might want to think about when to call the decay function as well.
+		// Clear old memory
+		int xLowerBound = Math.max(0, me.getX() - Parameters.defaultSensorRange);
+		int xUpperBound = Math.min(Parameters.xDimension, me.getX() + Parameters.defaultSensorRange);
+		int yLowerBound = Math.max(0, me.getY() - Parameters.defaultSensorRange);
+		int yUpperBound = Math.min(Parameters.yDimension, me.getY() + Parameters.defaultSensorRange);
+		for (int i = xLowerBound; i < xUpperBound; i++) {
+			for (int j = yLowerBound; j < yUpperBound; j++) {
+				if (objects[i][j] != null) {
+					objects[i][j] = null;
+					memoryGrid.set(i, j, null);
+					memorySize--;
+				}
+			}
+		}
+		for (int i = 0; i < sensedObjects.size(); i++) {// for (TWEntity o in sensedObject):
 			TWEntity o = (TWEntity) sensedObjects.get(i);
-			if (!(o instanceof TWObject)) {
+			if (o == null) {
 				continue;
 			}
-			
+			if (fuelStation == null && o instanceof TWFuelStation) {
+				// System.out.println(this.me.getName() + ": I found fuel station!!  " + o.getX() + ", " + o.getY());
+				setFuelStation((TWFuelStation) o);
+			}
+
 			//if nothing in memory currently, then were increasing the number 
 			//of items we have in memory by 1
 			//if(objects[objectXCoords.get(i)][objectYCoords.get(i)] == null) memorySize++;
@@ -169,15 +188,15 @@ public class TWAgentWorkingMemory {
 		// put some decay on other memory pieces (this will require complete
 		// iteration over memory though, so expensive.
 		//This is a simple example of how to do this.
-		//        for (int x = 0; x < this.objects.length; x++) {
-		//       for (int y = 0; y < this.objects[x].length; y++) {
-		//           TWAgentPercept currentMemory =  objects[x][y];
-		//           if(currentMemory!=null && currentMemory.getT() < schedule.getTime()-MAX_TIME){
-		//               memoryGrid.set(x, y, null);
-		//               memorySize--;
-		//           }
-		//       }
-		//   }
+		for (int x = 0; x < this.objects.length; x++) {
+			for (int y = 0; y < this.objects[x].length; y++) {
+				TWAgentPercept currentMemory =  objects[x][y];
+				if(currentMemory!=null && currentMemory.getT() < schedule.getTime()-MAX_TIME){
+					memoryGrid.set(x, y, null);
+					memorySize--;
+				}
+			}
+		}
 	}
 
 
@@ -318,7 +337,13 @@ public class TWAgentWorkingMemory {
 		//is it an obstacle?
 		return (e instanceof TWObstacle);
 	}
-
+	public static void setFuelStation(TWFuelStation fuelStation) {
+		TWAgentWorkingMemory.fuelStation = fuelStation;
+		System.out.println("Fuel station found!");
+	}
+	public static TWFuelStation getFuelStation() {
+		return fuelStation;
+	}
 	public ObjectGrid2D getMemoryGrid() {
 		return this.memoryGrid;
 	}

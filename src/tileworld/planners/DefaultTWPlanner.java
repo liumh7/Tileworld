@@ -53,7 +53,7 @@ public class DefaultTWPlanner implements TWPlanner {
         this.agent = agent;
         this.plan = null;
         this.goals = new ArrayList<Int2D>(4);
-        int maxSearchDepth = (Parameters.xDimension + Parameters.yDimension) / 4;
+        int maxSearchDepth = Parameters.xDimension + Parameters.yDimension;
         this.pathGenerator = new AstarPathGenerator(agent.getEnvironment(), agent, maxSearchDepth);
     }
     public void addGoal(TWEntity object) {
@@ -87,7 +87,8 @@ public class DefaultTWPlanner implements TWPlanner {
     }
     @Override
     public TWDirection execute() {
-        return plan.popNext().getDirection();
+        TWPathStep nextStep = plan.popNext();
+        return nextStep.getDirection();
     }
 
 }
