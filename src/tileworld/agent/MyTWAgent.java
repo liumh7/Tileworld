@@ -37,8 +37,12 @@ public class MyTWAgent extends TWAgent {
                 return new TWThought(TWAction.PICKUP, TWDirection.Z);
             }
         }
-        // If agent runs out fuel, go to fuel station.
+        // If fuel station has not been found, try to find fuel station.
         TWFuelStation fuelStation = TWAgentWorkingMemory.getFuelStation();
+        if (fuelStation == null) {
+
+        }
+        // If agent runs out fuel, go to fuel station.
         if (fuelStation != null && (fuelLevel < FUEL_THRESHOLD || fuelLevel - getDistanceTo(fuelStation) < FUEL_DISTANCE_BOUND)) {
             planner.addGoal(fuelStation);
             planner.generatePlan();

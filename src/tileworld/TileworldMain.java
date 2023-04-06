@@ -5,6 +5,7 @@
 package tileworld;
 
 import sim.engine.SimState;
+import tileworld.agent.TWAgentWorkingMemory;
 import tileworld.environment.TWEnvironment;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
@@ -46,6 +47,7 @@ public class TileworldMain {
 			overallScore+=tw.getReward();
 			tw.finish();
 			TimeUnit.SECONDS.sleep(1);
+            TWAgentWorkingMemory.setFuelStation(null);
 		}
 		System.out.println("The average reward is: "+((float)overallScore/iteration));
 		System.exit(0);  // make sure any threads finish up

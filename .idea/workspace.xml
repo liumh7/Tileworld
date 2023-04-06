@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8fe3d3c4-c70c-4304-97ee-2fc7f39141f7" name="Changes" comment="commited planner">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/TWAgent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/TWAgent$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/TWAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/TWAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/TWAgentWorkingMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/TWAgentWorkingMemory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/TileworldMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/TileworldMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tileworld/TileworldMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/TileworldMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/agent/TWAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/TWAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/agent/TWAgentWorkingMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/TWAgentWorkingMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/develop/javaprojects/AI6125-Multi-Agent-Systems/Project/Tileworld",
+    "last_opened_file_path": "E:/develop/javaprojects/Tileworld",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,7 +56,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.TWGUI">
+  <component name="RunManager" selected="Application.TileworldMain">
     <configuration name="TWGUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tileworld.TWGUI" />
       <module name="Tileworld" />
@@ -113,10 +111,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TileworldMain" />
         <item itemvalue="Application.TWGUI" />
         <item itemvalue="Application.TWGUI (1)" />
         <item itemvalue="Application.TileworldMain (1)" />
-        <item itemvalue="Application.TileworldMain" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +129,12 @@
       <workItem from="1676544893552" duration="4086000" />
       <workItem from="1679540286008" duration="24827000" />
       <workItem from="1679575410005" duration="597000" />
-      <workItem from="1679625258231" duration="29596000" />
+      <workItem from="1679625258231" duration="29789000" />
+      <workItem from="1679722609746" duration="1489000" />
+      <workItem from="1679798596022" duration="20000" />
+      <workItem from="1680597915453" duration="1074000" />
+      <workItem from="1680775272662" duration="3880000" />
+      <workItem from="1680788909771" duration="150000" />
     </task>
     <task id="LOCAL-00001" summary="commited planner">
       <created>1679638785028</created>
