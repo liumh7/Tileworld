@@ -6,12 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="8fe3d3c4-c70c-4304-97ee-2fc7f39141f7" name="Changes" comment="commited planner">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/Parameters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/tileworld/TileworldMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/TileworldMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/MyTWAgent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/MyTWAgent$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/agent/MyTWAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/agent/MyTWAgent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWEnvironment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/environment/TWObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/environment/TWObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/tileworld/planners/DefaultTWPlanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tileworld/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tileworld/TileworldMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/TileworldMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/agent/MyTWAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/environment/TWEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tileworld/planners/DefaultTWPlanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/develop/javaprojects/Tileworld",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/develop/javaprojects/Tileworld&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.TileworldMain">
+}</component>
+  <component name="RunManager" selected="Application.TWGUI">
     <configuration name="TWGUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tileworld.TWGUI" />
       <module name="Tileworld" />
@@ -111,8 +118,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TileworldMain" />
         <item itemvalue="Application.TWGUI" />
+        <item itemvalue="Application.TileworldMain" />
         <item itemvalue="Application.TWGUI (1)" />
         <item itemvalue="Application.TileworldMain (1)" />
       </list>
@@ -135,6 +142,7 @@
       <workItem from="1680597915453" duration="1074000" />
       <workItem from="1680775272662" duration="3880000" />
       <workItem from="1680788909771" duration="150000" />
+      <workItem from="1680879582163" duration="4049000" />
     </task>
     <task id="LOCAL-00001" summary="commited planner">
       <created>1679638785028</created>

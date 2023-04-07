@@ -59,6 +59,9 @@ public class DefaultTWPlanner implements TWPlanner {
     public void addGoal(TWEntity object) {
         addGoal(object.getX(), object.getY());
     }
+    public void addGoal(Int2D int2D) {
+        goals.add(int2D);
+    }
     public void addGoal(int x, int y) {
         goals.add(new Int2D(x, y));
     }

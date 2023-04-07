@@ -29,6 +29,7 @@ public class TileworldMain {
 	public static void main(String args[]) throws InterruptedException {
 		int overallScore = 0; 
 		int iteration = 10;
+        int[] scores = new int[iteration];
 		for(int i = 0; i<iteration; i++) {
 			int seed = ThreadLocalRandom.current().nextInt(1, Integer.MAX_VALUE);
 			System.out.println("Seed: "+seed);
@@ -44,11 +45,15 @@ public class TileworldMain {
 				steps = tw.schedule.getSteps();
 			}
 			System.out.println("The final reward is: "+tw.getReward());
+            scores[i] = tw.getReward();
 			overallScore+=tw.getReward();
 			tw.finish();
 			TimeUnit.SECONDS.sleep(1);
             TWAgentWorkingMemory.setFuelStation(null);
 		}
+        for (int score : scores) {
+            System.out.println(score);
+        }
 		System.out.println("The average reward is: "+((float)overallScore/iteration));
 		System.exit(0);  // make sure any threads finish up
     }
